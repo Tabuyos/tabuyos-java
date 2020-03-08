@@ -1,0 +1,16 @@
+Semaphore
+    利用信号量机制实现， 基于资源的有效共享
+    信号量的同步控制
+        信号量
+        步骤
+            请求资源， 获取许可
+            使用资源,  处理业务
+            释放资源
+并发集合
+    List，Set，Map
+        在并发环境下， 如何去对集合进行操作
+        在遍历的过程中不容许更新操作, 会抛出异常 ConcurrentModificationException
+    并发集合类
+        ConcurrentLinkedDeque 是双向链表结构的无界并发队列， 非阻塞式
+        LinkedBlockingDeque 阻塞式
+        ConcurrentHashMap

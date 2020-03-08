@@ -1,0 +1,9 @@
+AQS
+    子类定义为非公共内部类
+    可重入性
+        同一个锁多同一资源进行占有的时候， 直接分配给这个线程
+    ReentrantLock
+        公平锁
+        非公平锁
+    CyclicBarrier, CountDownLatch, Semaphore
+        这几个类之间的区别？

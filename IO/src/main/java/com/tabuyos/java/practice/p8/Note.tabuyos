@@ -1,0 +1,7 @@
+创建线程的方式
+    New Thread 真正意义的线程， 具有自己的生命周期
+    Implements Runnable 只是重写run方法， 最后还是需要new thread
+
+TheadPoolExecutor
+    为什么需要设置keepAliveTime？ 例如：CorePoolSize：10 MaximumPoolSize：20, 当核心数量创建完后， 又有新的线程1请求， 比如， 又请求了10个线程， 那么一共有20个线程， 此时已经达到了线程吃的最大数量，
+    那么就不能继续创建了， 此时由于核心线程的生存时间是和线程池相同的， 但是后创建的线程池， 并不是和核心线程一样的， 因此后面的线程在使用完后， 需要进行回收， 核心线程不用
