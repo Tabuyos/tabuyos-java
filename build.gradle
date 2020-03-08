@@ -1,0 +1,11 @@
+group 'com.tabuyos.java'
+version '0.1.0'
+
+repositories {
+    maven {
+        url 'https://maven.aliyun.com/repository/public'
+        name 'AliyunPublic'
+    }
+    mavenLocal()
+    mavenCentral()
+}
