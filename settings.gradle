@@ -1,4 +1,5 @@
 rootProject.name = 'tabuyos-java'
 include 'IO'
 include 'WebSocket'
+include 'Proxy'
 
