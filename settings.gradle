@@ -3,4 +3,5 @@ include 'IO'
 include 'WebSocket'
 include 'Proxy'
 include 'Servlet'
+include 'XML'
 

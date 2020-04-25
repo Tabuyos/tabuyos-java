@@ -1,0 +1,31 @@
+﻿<Subject type="SSS_SINGLE_MULTI_SEL">
+    <Title>
+        配送计划制订下达后，仓储部门应该做的工作包括（　　　）。
+    </Title>
+    <OrigialText/>
+    <Attach>QQ截图20140611150934.jpg</Attach>
+    <Attach>QQ截图20140611150934.jpg</Attach>
+    <Question Id="e6a67131-2f4e-4f46-b2b4-ee9c305551fe" type="SSS_SINGLE_MULTI_SEL">
+        <Content/>
+        <Item Id="1">
+            <Content>理货</Content>
+        </Item>
+        <Item Id="2">
+            <Content>分拣</Content>
+        </Item>
+        <Item Id="3">
+            <Content>包装</Content>
+        </Item>
+        <Item Id="4">
+            <Content>设备准备</Content>
+        </Item>
+        <Solution Id="1">
+            <Answer>
+                <Content/>
+            </Answer>
+            <AnswerDesc>
+                <Content/>
+            </AnswerDesc>
+        </Solution>
+    </Question>
+</Subject>
