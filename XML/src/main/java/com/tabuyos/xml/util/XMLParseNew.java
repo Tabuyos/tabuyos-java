@@ -67,28 +67,102 @@ public class XMLParseNew {
             "        <Item Id=\"4\">\n" +
             "            <Content>设备准备</Content>\n" +
             "        </Item>\n" +
-            "        <Solution Id=\"1\">\n" +
-            "            <Answer>\n" +
-            "                <Content/>\n" +
-            "            </Answer>\n" +
-            "            <AnswerDesc>\n" +
-            "                <Content/>\n" +
-            "            </AnswerDesc>\n" +
-            "        </Solution>\n" +
-            "    </Question>\n" +
-            "</Subject>";
+            "        <  Solution   Id=\"  1\">\n" +
+            "            <  Answer  >  \n" +
+            "                <  Content  /  >\n" +
+            "            <  /  Answer  >  \n  " +
+            "            <  AnswerDesc  >\n" +
+            "                <Content/  >\n" +
+            "            <  /AnswerDesc>\n" +
+            "        </  Solution>\n" +
+            "    </  Question>\n" +
+            "<  /Subject>";
     private static final char[] chars = xml.toCharArray();
     private static final StringBuilder builder = new StringBuilder();
+    private static final StringBuilder properties = new StringBuilder();
+    private static final StringBuilder value = new StringBuilder();
     private static final Stack<String> stack = new Stack<>();
-    private static final char specialChar = ' ';
-    StringBuffer stringBuffer = new StringBuffer();
+    private static char specialChar = ' ';
+    private static boolean startFlag = false;
+    private static boolean stopFlag = false;
+    private static boolean specialFlag = false;
+    private static boolean appendFlag = true;
+    private static boolean convert = true;
 
     private static void parse() {
         for (char ch : chars) {
-            if (ch == ' ') {
+            if (ch == '<') {
+                startFlag = true;
+                stopFlag = false;
+                if (specialChar == '<') {
+                    if (builder.length() != 0) {
+                        builder.delete(0, builder.length());
+                    }
+                }
+                specialChar = ch;
                 continue;
             }
-
+            if (ch == '/') {
+                if (builder.length() != 0) {
+                    if (specialChar == '<') {
+                        specialFlag = true;
+                    }
+                }
+                specialChar = ch;
+                continue;
+            }
+            if (ch == '>' && startFlag) {
+                if (specialChar == '<') {
+                    if (builder.length() != 0) {
+                        stack.push(builder.toString());
+                        stack.push("1");
+                        builder.delete(0, builder.length());
+                        specialFlag = false;
+                        appendFlag = true;
+                        specialChar = ' ';
+                    }
+                }
+                if (specialChar == '/') {
+                    if (builder.length() != 0) {
+                        stack.push(builder.toString());
+                        stack.push("2");
+                        if (specialFlag && convert) {
+                            stack.push(builder.toString());
+                        }
+                        builder.delete(0, builder.length());
+                        specialFlag = false;
+                        appendFlag = true;
+                        specialChar = ' ';
+                    }
+                }
+                if (properties.length() != 0) {
+                    System.out.println(properties.toString().trim());
+                    properties.delete(0, properties.length());
+                }
+                if (value.length() != 0) {
+                    System.out.println(value.toString().trim());
+                    value.delete(0, value.length());
+                }
+                startFlag = false;
+                stopFlag = true;
+                continue;
+            }
+            if (ch == ' ') {
+                appendFlag = builder.length() == 0;
+                continue;
+            }
+            if (startFlag && !stopFlag && appendFlag) {
+                builder.append(ch);
+            }
+            if (startFlag && !stopFlag && !appendFlag) {
+                properties.append(ch);
+            }
+            if (!startFlag && stopFlag) {
+                if (ch == '\n' || ch == '\t' || ch == '\r') {
+                    continue;
+                }
+                value.append(ch);
+            }
         }
     }
 
