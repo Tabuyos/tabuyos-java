@@ -52,16 +52,16 @@ public class XMLParseNew {
             "    </Title  >\n" +
             "    <  OrigialText  /  >\n" +
             "    <Attach>QQ< / Attach>\n" +
-            "    <  Attach >QQg</Attach>\n" +
+            "    <  Attach >Q<<Qg</Attach>\n" +
             "    <  Question Id=\"ee\" type=\"SEL\">\n" +
             "        <Content/>\n" +
             "        <Item Id=\"1\">\n" +
-            "            <Content>理货</Content>\n" +
+            "            <Content>理>>货</Content>\n" +
             "        </Item>\n" +
             "        <Item Id=\"2\">\n" +
             "            <Content>分拣</Content>\n" +
-            "        </Item>\n" +
-            "        <Item Id=\"3\">\n" +
+            "        </Item>fds\n" +
+            "        <Item Id=\"3\">fdsafdsa\n" +
             "            <Content>包装</Content>\n" +
             "        </Item>\n" +
             "        <Item Id=\"4\">\n" +
@@ -166,8 +166,20 @@ public class XMLParseNew {
         }
     }
 
+    public static boolean isConvert() {
+        return convert;
+    }
+
+    public static void setConvert(boolean convert) {
+        XMLParseNew.convert = convert;
+    }
+
     public static void main(String[] args) {
+        setConvert(false);
+        long begin = System.currentTimeMillis();
         parse();
+        long end = System.currentTimeMillis();
+        System.out.println(end - begin);
         System.out.println(stack);
     }
 }
