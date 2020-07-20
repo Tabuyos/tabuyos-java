@@ -13,8 +13,14 @@ public class HoonSingleton {
     private HoonSingleton() {}
 
     public static HoonSingleton getInstance() {
-        if (instance == null) {
-            instance = new HoonSingleton();
+        try {
+            if (instance == null) {
+                // 模拟线程不安全
+                Thread.sleep(1000);
+                instance = new HoonSingleton();
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         return instance;
     }
