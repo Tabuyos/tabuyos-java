@@ -3,9 +3,7 @@ package com.tabuyos.java.function.optional;
 import com.tabuyos.java.function.magic.Lazy;
 import com.tabuyos.java.function.magic.RMF2;
 
-import java.util.Optional;
-import java.util.function.Function;
-import java.util.function.Supplier;
+import java.util.Map;
 
 /**
  * @Author Tabuyos
@@ -31,27 +29,38 @@ public class TestOptional {
     }
 
     public static void main(String[] args) {
-//        eager
-        Integer v1 = compute(1);
-//        lazy
-        Supplier<Integer> v2 = () -> compute(2);
+////        eager
+//        Integer v1 = compute(1);
+////        lazy
+//        Supplier<Integer> v2 = () -> compute(2);
+//
+//        System.out.println(v1);
+//        System.out.println(v2.get());
+//
+//        Lazy<Integer> lazy0 = new Lazy<>(() -> compute(3));
+//
+//        System.out.println(lazy0.get());
+//        System.out.println(lazy0.get());
+//        System.out.println(lazy0.get());
+//
+//        Lazy<Integer> lazy1 = Lazy.of(() -> compute(42));
+//        Lazy<Integer> map = lazy1.map(s -> compute(s + 13));
+//        Lazy<Integer> flatMap = map.flatMap(s -> lazyCompute(s + 15));
+//        Lazy<Optional<Integer>> filter = flatMap.filter(v -> v > 0);
+//
+//        System.out.println(filter.get());
+//        System.out.println(filter.get());
+//        System.out.println(filter.get());
 
-        System.out.println(v1);
-        System.out.println(v2.get());
+        testGuava();
+    }
 
-        Lazy<Integer> lazy0 = new Lazy<>(() -> compute(3));
 
-        System.out.println(lazy0.get());
-        System.out.println(lazy0.get());
-        System.out.println(lazy0.get());
+    public static void testGuava() {
+        OMF<Integer> omf = System.out::println;
 
-        Lazy<Integer> lazy1 = Lazy.of(() -> compute(42));
-        Lazy<Integer> map = lazy1.map(s -> compute(s + 13));
-        Lazy<Integer> flatMap = map.flatMap(s -> lazyCompute(s + 15));
-        Lazy<Optional<Integer>> filter = flatMap.filter(v -> v > 0);
+        System.out.println(omf instanceof MF);
 
-        System.out.println(filter.get());
-        System.out.println(filter.get());
-        System.out.println(filter.get());
+        omf.apply(new Integer[]{321});
     }
 }
