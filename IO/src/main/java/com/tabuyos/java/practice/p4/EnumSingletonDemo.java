@@ -15,6 +15,9 @@ public class EnumSingletonDemo {
     private enum EnumHolder {
 
 
+        /**
+         *
+         */
         INTERFACE;
         private EnumSingletonDemo instance;
 
