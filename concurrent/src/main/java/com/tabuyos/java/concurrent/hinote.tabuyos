@@ -1,0 +1,12 @@
+线程的状态:
+  共有6种:
+    NEW: 初始状态, 没有调用 start(),
+    RUNNABLE: 运行状态
+    BLOCKED: 阻塞
+    WAITING: 等待
+    TIMED_WAITING: 超市等待
+    TERMINATED: 终止
+  sleep(time), wait(time), join(time), park 等方法, 将 RUNNABLE 状态更改为 TIMED_WAITING, 如果不带 time, 则会改为 WAITING
+  notify, notifyAll, unpark 等方法, 将 TIMED_WAITING 状态更改为 RUNNABLE
+
+E（exclusive）、M（modified）、S（shared）、I（invalid）
