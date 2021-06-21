@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
  * @Email tabuyos@outlook.com
  * @Description
  */
+@SuppressWarnings({"AlibabaAvoidManuallyCreateThread", "AlibabaUndefineMagicConstant"})
 public class CarDemo {
 
     public static void main(String[] args) {

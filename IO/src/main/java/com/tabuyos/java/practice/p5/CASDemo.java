@@ -9,6 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Email tabuyos@outlook.com
  * @Description
  */
+@SuppressWarnings("AlibabaAvoidManuallyCreateThread")
 public class CASDemo {
 
     private static volatile int m = 0;

@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
  * @Email tabuyos@outlook.com
  * @Description
  */
+@SuppressWarnings("AlibabaAvoidManuallyCreateThread")
 public class FightQueryDemo {
 
     private static List<String> company = Arrays.asList("东方航空", "南方航空", "海南航空");

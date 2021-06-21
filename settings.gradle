@@ -6,4 +6,8 @@ include 'Servlet'
 include 'XML'
 include 'function'
 include 'concurrent'
+include 'gateway'
+include 'gateway-api'
+include 'rpc-server'
+include 'rpc-client'
 

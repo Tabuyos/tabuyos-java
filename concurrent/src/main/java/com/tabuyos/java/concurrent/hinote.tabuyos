@@ -10,3 +10,8 @@
   notify, notifyAll, unpark 等方法, 将 TIMED_WAITING 状态更改为 RUNNABLE
 
 E（exclusive）、M（modified）、S（shared）、I（invalid）
+
+redis单线程为什么那么快
+redis与memcached的区别
+redis支持的数据类型
+zset底层原理
